@@ -36,7 +36,8 @@ function getNextVid(callback) {
 
 var video = videojs('video');
 video.endcard({
-    getRelatedContent: getRelatedContent
+    getRelatedContent: getRelatedContent,
+    getNextVid: getNextVid
 })
 </script>
 ```
