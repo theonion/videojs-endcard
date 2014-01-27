@@ -30,7 +30,7 @@ function getNextVid(callback) {
     anchor.innerHTML = "Users will be taken to the VideoJS website after 10 seconds!"
     anchor.href = "http://www.videojs.com/"
     setTimeout(function(){
-        callback([el])
+        callback(anchor)
     }, 0);
 }
 
