@@ -52,8 +52,13 @@ Check out `videojs.endcard.less` for ideas on how to style the endcard. The defa
 
 ## Options
 
-* `getRelatedContent` : **Required** for display of related content. It must invoke the callback function, which takes an **array of DOM Elements** and appends them to the "related-content" container.
-* `getNextVid` : **Required** for autoplaying video. It must invoke the callback function, which takes a **single DOM Element** and appends it to the "next-video" container. When the countdown ends, the user is taken to the **first** anchor href that is found in the DOM Element passed to the callback function.
+**Functions**:
+
+`getRelatedContent` : **Required** for display of related content. It must invoke the callback function, which takes an **array of DOM Elements** and appends them to the "related-content" container.
+
+`getNextVid` : **Required** for autoplaying video. It must invoke the callback function, which takes a **single DOM Element** and appends it to the "next-video" container. When the countdown ends, the user is taken to the **first** anchor href that is found in the DOM Element passed to the callback function.
+
+**Styling Stuff**:
 * `endcard` : id for the end card. Default = "player-endcard"
 * `related` : id for div containing related content thumbnails. Default = "related-content"
 * `next` : id for div containing the thumbnail for the upcoming video. Default = "next-video"
