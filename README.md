@@ -1,4 +1,4 @@
-## VideoJS End Cards
+# VideoJS End Cards
 
 Simple, customizable end card solution for VideoJS.
 
@@ -25,9 +25,11 @@ video.endcard({
 
 Also, `example.html` is a more detailed demo.
 
+
 ## Styling
 
 Check out `videojs.endcard.less` for ideas on how to style the endcard. The default id's are in the options.
+
 
 ## Options
 
