@@ -1,7 +1,14 @@
-# VideoJS End Cards
+## VideoJS End Cards
 
 Simple, customizable end card solution for VideoJS.
 
+
+
+This plugin adds an end card container, which shows/hides based on the VideoJS's `playing` and `ended` events. By implementing the `getRelatedContent` function, it can display thumbnails for content your users might be interested in, and you can implement the `getNextVid` function to drive your users to a page after `x` amount of seconds.
+
+The plugin is unopiniated on what kind of markup your thumbnails have - it just takes whatever you give it and appends it to the corresponding container div.
+
+Fork the repo and take a look!
 
 ## Example
 ```js
@@ -13,9 +20,20 @@ function getRelatedContent(callback) {
     var el = document.createElement('p');
     el.innerHTML = "So Cool You'll HAVE to Click This!"
     setTimeout(function(){
+        // Needs an array
         callback([el])
     }, 0);
 }
+
+function getNextVid(callback) {
+    var anchor = document.createElement('a');
+    anchor.innerHTML = "Users will be taken to the VideoJS website after 10 seconds!"
+    anchor.href = "http://www.videojs.com/"
+    setTimeout(function(){
+        callback([el])
+    }, 0);
+}
+
 var video = videojs('video');
 video.endcard({
     getRelatedContent: getRelatedContent
@@ -33,9 +51,9 @@ Check out `videojs.endcard.less` for ideas on how to style the endcard. The defa
 
 ## Options
 
-* `getRelatedContent` : Required for display of related content. It must invoke the callback function, the first argument, in order to work.
-* `getNextVid` : Required for autoplaying video. It must invoke the callback function, the first argument, in order to work.
-* `related` : id for the end card. Default = "player-endcard"
+* `getRelatedContent` : **Required** for display of related content. It must invoke the callback function, which takes an **array of DOM Elements** and appends them to the "related-content" container.
+* `getNextVid` : **Required** for autoplaying video. It must invoke the callback function, which takes a **single DOM Element** and appends it to the "next-video" container. When the countdown ends, the user is taken to the **first** anchor href that is found in the DOM Element passed to the callback function.
+* `endcard` : id for the end card. Default = "player-endcard"
 * `related` : id for div containing related content thumbnails. Default = "related-content"
 * `next` : id for div containing the thumbnail for the upcoming video. Default = "next-video"
 * `count` : number of seconds until the next video. Default = 10
