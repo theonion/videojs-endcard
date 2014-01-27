@@ -21,7 +21,6 @@
     countdown_text: "Next video in:",
     endcard: "player-endcard",
     related: "related-content",
-    preview: "video-preview",
     next: "next-video",
     getRelatedContent: function(callback){callback();},
     getNextVid: function(callback){callback();}
