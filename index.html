@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="VideoJS Endcards : Simple, customizable end card solution for VideoJS." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>VideoJS Endcards</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/theonion/videojs-endcard">View on GitHub</a>
+
+          <h1 id="project_title">VideoJS Endcards</h1>
+          <h2 id="project_tagline">Simple, customizable end card solution for VideoJS.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/theonion/videojs-endcard/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/theonion/videojs-endcard/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="videojs-end-cards" class="anchor" href="#videojs-end-cards"><span class="octicon octicon-link"></span></a>VideoJS End Cards</h2>
+
+<p>Simple, customizable end card solution for VideoJS.</p>
+
+<p>This plugin adds an end card container, which shows/hides based on the VideoJS's <code>playing</code> and <code>ended</code> events. By implementing the <code>getRelatedContent</code> function, it can display thumbnails for content your users might be interested in, and you can implement the <code>getNextVid</code> function to drive your users to a page after <code>x</code> amount of seconds.</p>
+
+<p>The plugin is unopiniated on what kind of markup your thumbnails have - it just takes whatever you give it and appends it to the corresponding container div.</p>
+
+<p>Fork the repo and take a look!</p>
+
+<h2>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<div class="highlight highlight-js"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"http://vjs.zencdn.net/4.0/video.js"</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s1">'videojs.endcard.js'</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="c1">// Sync or Async, you decide.</span>
+<span class="kd">function</span> <span class="nx">getRelatedContent</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'p'</span><span class="p">);</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"So Cool You'll HAVE to Click This!"</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// Needs an array</span>
+        <span class="nx">callback</span><span class="p">([</span><span class="nx">el</span><span class="p">])</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getNextVid</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">anchor</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
+    <span class="nx">anchor</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Users will be taken to the VideoJS website after 10 seconds!"</span>
+    <span class="nx">anchor</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">"http://www.videojs.com/"</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">anchor</span><span class="p">)</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nx">videojs</span><span class="p">(</span><span class="s1">'video'</span><span class="p">);</span>
+<span class="nx">video</span><span class="p">.</span><span class="nx">endcard</span><span class="p">({</span>
+    <span class="nx">getRelatedContent</span><span class="o">:</span> <span class="nx">getRelatedContent</span><span class="p">,</span>
+    <span class="nx">getNextVid</span><span class="o">:</span> <span class="nx">getNextVid</span>
+<span class="p">})</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+
+<p>Also, <code>example.html</code> is a more detailed demo.</p>
+
+<h2>
+<a name="styling" class="anchor" href="#styling"><span class="octicon octicon-link"></span></a>Styling</h2>
+
+<p>Check out <code>videojs.endcard.less</code> for ideas on how to style the endcard. The default id's are in the options.</p>
+
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p><strong>Functions</strong>:</p>
+
+<p><code>getRelatedContent</code> : <strong>Required</strong> for display of related content. It must invoke the callback function, which takes an <strong>array of DOM Elements</strong> and appends them to the "related-content" container.</p>
+
+<p><code>getNextVid</code> : <strong>Required</strong> for autoplaying video. It must invoke the callback function, which takes a <strong>single DOM Element</strong> and appends it to the "next-video" container. When the countdown ends, the user is taken to the <strong>first</strong> anchor href that is found in the DOM Element passed to the callback function.</p>
+
+<p><strong>Styling Stuff</strong>:</p>
+
+<ul>
+<li>
+<code>endcard</code> : id for the end card. Default = "player-endcard"</li>
+<li>
+<code>related</code> : id for div containing related content thumbnails. Default = "related-content"</li>
+<li>
+<code>next</code> : id for div containing the thumbnail for the upcoming video. Default = "next-video"</li>
+<li>
+<code>count</code> : number of seconds until the next video. Default = 10</li>
+<li>
+<code>counter</code> : id for the countdown number. Default = "counter"</li>
+<li>
+<code>countdown</code> : id for the div containing the countdown. Default = "countdown"</li>
+<li>
+<code>countdown_text</code> : text displayed for the countdown. Default = "Next video in:"</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">VideoJS Endcards maintained by <a href="https://github.com/theonion">theonion</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
