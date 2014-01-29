@@ -85,7 +85,7 @@
           count--;
           if (count <= 0) {
             clearInterval(interval);
-            cd = document.getElementById(settings.countdown);
+            var cd = document.getElementById(settings.countdown);
             cd.innerHTML = "( Just Kidding )";
             return;
           }
