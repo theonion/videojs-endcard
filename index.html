@@ -33,7 +33,19 @@
       <section id="main_content" class="inner">
         <p>Skip to the end to see the end card:</p>
 
-<p><p>Video Playback Not Supported</p>
+<p>
+<video id='video'
+       src='http://video-js.zencoder.com/oceans-clip.mp4'
+       class='video-js vjs-default-skin'
+       width='640'
+       height='264'
+       poster='http://video-js.zencoder.com/oceans-clip.jpg'
+       controls>
+  <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4'>
+  <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm'>
+  <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg'>
+  <p>Video Playback Not Supported</p>
+</video>
 </p>
 
 <p>This plugin adds an end card container, which shows/hides based on the VideoJS's <code>playing</code> and <code>ended</code> events. By implementing the <code>getRelatedContent</code> function, it can display thumbnails for content your users might be interested in, and you can implement the <code>getNextVid</code> function to drive your users to a page after <code>x</code> amount of seconds.</p>
