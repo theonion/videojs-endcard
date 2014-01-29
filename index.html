@@ -31,54 +31,60 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h2>
-<a name="videojs-end-cards" class="anchor" href="#videojs-end-cards"><span class="octicon octicon-link"></span></a>VideoJS End Cards</h2>
+        <p>Skip to the end to see the end card:</p>
+
+<p><p>Video Playback Not Supported</p>
+</p>
 
 <p>This plugin adds an end card container, which shows/hides based on the VideoJS's <code>playing</code> and <code>ended</code> events. By implementing the <code>getRelatedContent</code> function, it can display thumbnails for content your users might be interested in, and you can implement the <code>getNextVid</code> function to drive your users to a page after <code>x</code> amount of seconds.</p>
 
 <p>The plugin is unopiniated on what kind of markup your thumbnails have - it just takes whatever you give it and appends it to the corresponding container div.</p>
 
-<p>Fork the repo and take a look!</p>
+<p>Clone the repo and take a look!</p>
 
 <h2>
-<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<div class="highlight highlight-js"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"http://vjs.zencdn.net/4.0/video.js"</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s1">'videojs.endcard.js'</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<div class="highlight highlight-js"><pre><span class="o">&lt;</span><span class="nx">link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"http://vjs.zencdn.net/4.0/video-js.css"</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"http://theonion.github.io/videojs-endcard/stylesheets/videojs.endcard.css"</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"http://vjs.zencdn.net/4.0/video.js"</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"http://theonion.github.io/videojs-endcard/javascripts/videojs.endcard.js"</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
 <span class="c1">// Sync or Async, you decide.</span>
 <span class="kd">function</span> <span class="nx">getRelatedContent</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'p'</span><span class="p">);</span>
-    <span class="nx">el</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"So Cool You'll HAVE to Click This!"</span>
+    <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'p'</span><span class="p">);</span>
+    <span class="nx">p</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"So Cool You'll HAVE to Click This!"</span><span class="p">;</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">p</span><span class="p">);</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
         <span class="c1">// Needs an array</span>
-        <span class="nx">callback</span><span class="p">([</span><span class="nx">el</span><span class="p">])</span>
+        <span class="nx">callback</span><span class="p">([</span><span class="nx">div</span><span class="p">]);</span>
     <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">getNextVid</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">anchor</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
     <span class="nx">anchor</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Users will be taken to the VideoJS website after 10 seconds!"</span>
     <span class="nx">anchor</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">"http://www.videojs.com/"</span>
+    <span class="nx">div</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">anchor</span><span class="p">)</span>
     <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-        <span class="nx">callback</span><span class="p">(</span><span class="nx">anchor</span><span class="p">)</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
     <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="kd">var</span> <span class="nx">video</span> <span class="o">=</span> <span class="nx">videojs</span><span class="p">(</span><span class="s1">'video'</span><span class="p">);</span>
 <span class="nx">video</span><span class="p">.</span><span class="nx">endcard</span><span class="p">({</span>
     <span class="nx">getRelatedContent</span><span class="o">:</span> <span class="nx">getRelatedContent</span><span class="p">,</span>
-    <span class="nx">getNextVid</span><span class="o">:</span> <span class="nx">getNextVid</span>
+<span class="c1">//  getNextVid: getNextVid    //uncomment this for auto-playing video</span>
 <span class="p">})</span>
 <span class="o">&lt;</span><span class="err">/script&gt;</span>
 </pre></div>
 
-<p>Also, <code>example.html</code> is a more detailed demo.</p>
-
 <h2>
 <a name="styling" class="anchor" href="#styling"><span class="octicon octicon-link"></span></a>Styling</h2>
 
-<p>Check out <code>videojs.endcard.less</code> for ideas on how to style the endcard. The default id's are in the options.</p>
+<p>Check out <a href="http://theonion.github.io/videojs-endcard/stylesheets/videojs.endcard.less">videojs.endcard.less</a> for ideas on how to style the endcard. The default id's are in the options.</p>
 
 <h2>
 <a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
