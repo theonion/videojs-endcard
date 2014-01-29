@@ -6,18 +6,18 @@ Simple, customizable end card solution for VideoJS.
 
 This plugin adds an end card container, which shows/hides based on the VideoJS's `playing` and `ended` events. By implementing the `getRelatedContent` function, it can display thumbnails for content your users might be interested in, and you can implement the `getNextVid` function to drive your users to a page after `x` amount of seconds.
 
-The plugin is unopiniated on what kind of markup your thumbnails have - it just takes whatever you give it and appends it to the corresponding container div.
+The plugin is unopinionated on what kind of markup your thumbnails have - it just takes whatever you give it and appends it to the corresponding container div.
 
 Fork the repo and take a look!
 
 ## Example
 ```js
 <script src="http://vjs.zencdn.net/4.0/video.js"></script>
-<script src='videojs.endcard.js'></script>
+<script src="videojs.endcard.js"></script>
 <script>
 // Sync or Async, you decide.
 function getRelatedContent(callback) {
-    var el = document.createElement('p');
+    var el = document.createElement("p");
     el.innerHTML = "So Cool You'll HAVE to Click This!"
     setTimeout(function(){
         // Needs an array
@@ -34,7 +34,7 @@ function getNextVid(callback) {
     }, 0);
 }
 
-var video = videojs('video');
+var video = videojs("video");
 video.endcard({
     getRelatedContent: getRelatedContent,
     getNextVid: getNextVid
