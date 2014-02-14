@@ -1,0 +1,20 @@
+{
+  "name": "videojs-endcard",
+  "version": "0.1.0",
+  "description": "Simple, customizable end card solution for VideoJS.",
+  "main": "videojs.endcard.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theonion/videojs-endcard.git"
+  },
+  "homepage": "http://theonion.github.io/videojs-endcard/",
+  "keywords": [
+    "videojs",
+    "endcard"
+  ],
+  "author": {
+    "name": "Shaker Islam",
+    "email": "sislam@theonion.com"
+  },
+  "license": "MIT"
+}
